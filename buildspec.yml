@@ -8,8 +8,8 @@ phases:
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
-      - sudo apt-get install java-8-openjdk-amd64
       - sudo apt update
+      - sudo apt install openjdk-8-jdk
       - sudo apt install ant
   build:
     commands:
