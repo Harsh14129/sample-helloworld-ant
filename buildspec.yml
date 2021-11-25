@@ -9,8 +9,8 @@ phases:
     commands:
       - echo Nothing to do in the pre_build phase...
       - apt-get update
-      - apt install openjdk-8-jdk
-      - apt install ant
+      - apt-get install openjdk-8-jdk
+      - apt-get install ant
   build:
     commands:
       - echo Build started on `date`
