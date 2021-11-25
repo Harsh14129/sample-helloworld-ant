@@ -37,7 +37,7 @@ phases:
     commands:
       - echo Build started on date
       - echo Building the Docker image...
-      - mvn install
+      - mvn clean package
   post_build:
     commands:
       - echo Build completed on date
