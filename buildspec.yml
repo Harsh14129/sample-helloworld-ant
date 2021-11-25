@@ -14,7 +14,12 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - ant build
+      - ant build 
   post_build:
     commands:
       - echo Build completed on `date`
+
+artifacts:
+  type: 
+  files:
+    - build.xml
