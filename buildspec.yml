@@ -27,3 +27,4 @@ artifacts:
   type: 
   files:
     - build.xml
+    - appspec.yml
