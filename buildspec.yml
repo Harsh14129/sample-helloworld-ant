@@ -4,22 +4,44 @@ version: 0.2
 #   variables:
 #     JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
 
+# phases:
+#   install:
+#     commands:
+#       - apt-get update
+#       - apt-get install -y openjdk-8-jdk
+#       - apt-get install -y ant
+#   pre_build:
+#     commands:
+#       - echo Nothing to do in the pre_build phase...
+#   build:
+#     commands:
+#       - echo Build started on `date`
+#       - ant build
+#   post_build:
+#     commands:
+#       - echo Build completed on `date`
+
 phases:
   install:
     commands:
-      - apt-get update
+      - apt-get update -y
+      - apt-get install -y software-properties-common
+      - add-apt-repository ppa:openjdk-r/ppa
+      - apt-get update -y
       - apt-get install -y openjdk-8-jdk
-      - apt-get install -y ant
+      - apt-get install -y maven
   pre_build:
     commands:
-      - echo Nothing to do in the pre_build phase...
+      - echo Logging in to Amazon ECR...
   build:
     commands:
-      - echo Build started on `date`
-#       - ant build
+      - echo Build started on date
+      - echo Building the Docker image...
+      - mvn install
   post_build:
     commands:
-      - echo Build completed on `date`
+      - echo Build completed on date
+      - echo Pushing the Docker image...
 
 artifacts:
   type: 
