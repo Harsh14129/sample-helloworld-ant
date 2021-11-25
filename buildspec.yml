@@ -1,0 +1,23 @@
+version: 0.2
+
+# env:
+#   variables:
+#     JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
+
+phases:
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
+      - sudo apt-get install openjdk-8-jdk openjdk-8-doc openjdk-8-jre-lib java-8-openjdk-amd64
+      - sudo apt update
+      - sudo apt install ant
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn install
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - target/messageUtil-1.0.jar
