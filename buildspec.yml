@@ -5,12 +5,16 @@ version: 0.2
 #     JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
 
 phases:
-  pre_build:
+  install:
+    runtime-versions:
+      nodejs: 14
     commands:
-      - echo Nothing to do in the pre_build phase...
       - apt-get update
       - apt-get install -y openjdk-8-jdk
       - apt-get install -y ant
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
   build:
     commands:
       - echo Build started on `date`
