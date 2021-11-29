@@ -13,7 +13,6 @@ phases:
       - apt-get update
       - wget https://dlcdn.apache.org//ant/binaries/apache-ant-1.10.12-bin.zip
       - apt-get install -y unzip
-      - pwd
       - unzip apache-ant-1.10.12-bin.zip
   pre_build:
     commands:
@@ -21,7 +20,6 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - pwd
       - ant run
   post_build:
     commands:
